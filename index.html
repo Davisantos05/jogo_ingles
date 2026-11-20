@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081811">
+  <meta name="description" content="Jungle of Tenses: a two-player English grammar adventure. Master WILL and BE GOING TO in a mysterious board game.">
+  <title>Jungle of Tenses — The Lost Expedition</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/game.js" defer></script>
+</head>
+<body>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <svg class="forest-deco forest-deco--left" viewBox="0 0 350 940" fill="none" aria-hidden="true"><path d="M-24-20C190 119 34 187 219 331S130 546 301 685" stroke="currentColor" stroke-width="6" opacity=".5"/><path d="M36 105C10 31 49 5 101 12c35 63 17 99-65 93ZM122 245C172 171 226 178 251 194c-3 64-42 90-129 51ZM160 419C84 383 54 407 51 452c60 40 97 36 109-33ZM225 575C256 495 315 489 345 517c-10 66-48 88-120 58ZM-15 728C43 661 88 668 109 697c-9 61-51 85-124 31Z" fill="currentColor" opacity=".28"/></svg>
+  <svg class="forest-deco forest-deco--right" viewBox="0 0 350 940" fill="none" aria-hidden="true"><path d="M355-20C148 104 281 221 129 345S231 544 32 784" stroke="currentColor" stroke-width="6" opacity=".52"/><path d="M311 122C354 55 319 15 272 11c-48 57-46 95 39 111ZM203 286C127 223 85 252 81 286c41 59 88 59 122 0ZM182 475C255 409 304 430 320 463c-32 64-81 75-138 12ZM79 675C34 611 4 626-5 650c10 51 46 73 84 25Z" fill="currentColor" opacity=".28"/></svg>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Jungle of Tenses home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/><path d="m30 11 6.7 15.3L49 30l-12.3 3.7L30 49l-6.7-15.3L11 30l12.3-3.7L30 11Z" fill="currentColor"/><circle cx="30" cy="30" r="4" fill="#122018"/></svg></span>
+        <span class="brand-text"><strong>JUNGLE <em>OF</em> TENSES</strong><small>THE LOST EXPEDITION</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="edition-tag">ENGLISH CLASSROOM EDITION <span>•</span> 2 PLAYERS</span>
+        <button class="icon-button" id="soundBtn" type="button" aria-label="Sound off" title="Toggle sound"><svg class="sound-icon" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M17 9c1.4 1.4 1.4 4.6 0 6M20 6c3 3 3 9 0 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span id="soundCross" class="sound-cross"></span></button>
+        <button class="utility-button" id="rulesBtn" type="button">HOW TO PLAY <span>↗</span></button>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="intro-line"><span class="tiny-diamond">✦</span> AN ADVENTURE THROUGH THE FUTURE <span class="intro-line-rule"></span> CHAPTER 01 <span class="tiny-diamond">✦</span></div>
+      <section class="hero" aria-label="Game introduction">
+        <div><p class="eyebrow"><span class="red-dot"></span> ENTER THE FORBIDDEN JUNGLE</p><h1>The future is <i>yours</i><br>to discover<span class="title-period">.</span></h1><p class="hero-subtitle">One ancient path. Two explorers. Every choice shapes your destiny. Will you survive the grammar jungle?</p></div>
+        <div class="hero-stamp" aria-hidden="true"><div class="stamp-inner"><span>EST.</span><strong>36</strong><small>MYSTERY<br>SPACES</small></div><span class="stamp-star star-a">✦</span><span class="stamp-star star-b">✦</span></div>
+      </section>
+
+      <div class="game-layout">
+        <section class="board-panel" aria-label="The game board">
+          <div class="panel-header"><div class="panel-heading"><span class="section-index">01 / THE MAP</span><h2>Trail of the ancients</h2></div><div class="board-status"><span class="status-light"></span><span id="boardStatus">AWAITING EXPLORERS</span></div></div>
+          <div class="map-frame">
+            <div class="map-top-ornament"><span>✧ &nbsp; THE WHISPERING WILDS &nbsp; ✧</span><span class="coordinates">14° 42' N · 72° 09' W</span></div>
+            <div class="map-grid" id="board" role="group" aria-label="36 spaces board; snake path from bottom left to top left"></div>
+            <div class="map-bottom-ornament"><span class="base-camp"><span class="camp-pulse"></span> BASE CAMP <span id="baseTokens" class="base-tokens"></span></span><span class="map-compass" aria-hidden="true">N <span>↑</span></span><span>YOUR STORY BEGINS HERE</span></div>
+            <span class="frame-corner frame-corner--tl"></span><span class="frame-corner frame-corner--tr"></span><span class="frame-corner frame-corner--bl"></span><span class="frame-corner frame-corner--br"></span>
+          </div>
+          <div class="board-legend"><span><i class="legend-icon legend-icon--gold">✧</i> ANCIENT BLESSING</span><span><i class="legend-icon legend-icon--red">!</i> JUNGLE TRAP</span><span><i class="legend-icon legend-icon--white">◆</i> FINAL TEMPLE</span></div>
+        </section>
+
+        <aside class="sidebar" aria-label="Game controls">
+          <section class="control-card"><div class="section-title-row"><span class="section-index">02 / THE EXPLORERS</span><span class="chapter-glyph">✧</span></div><h2>Expedition party</h2><p class="section-blurb">Only the bravest will reach the temple.</p>
+            <div class="players" id="players">
+              <div class="player-card player-card--one"><div class="player-symbol player-symbol--one">I</div><div class="player-info"><small>EXPLORER ONE</small><strong id="p1Name">Explorer 1</strong><span id="p1State">AT BASE CAMP</span></div><div class="player-score"><strong id="p1Pos">00</strong><span>/ 36</span></div></div>
+              <div class="player-card player-card--two"><div class="player-symbol player-symbol--two">II</div><div class="player-info"><small>EXPLORER TWO</small><strong id="p2Name">Explorer 2</strong><span id="p2State">AT BASE CAMP</span></div><div class="player-score"><strong id="p2Pos">00</strong><span>/ 36</span></div></div>
+            </div>
+            <div class="turn-indicator"><span class="turn-beacon"></span><span id="turnText">Gather your team to begin</span></div>
+          </section>
+
+          <section class="dice-panel"><div class="dice-decoration dice-decoration--a">✦</div><div class="dice-decoration dice-decoration--b">✦</div><div class="section-title-row"><span class="section-index">03 / THE FATE</span><span class="dice-overline">ROLL · ANSWER · ADVANCE</span></div><h2>The dice decides.</h2><p id="rollHint">Answer the jungle's questions to earn your next move.</p>
+            <div class="dice-row"><div class="dice-box"><div class="die-face" id="die" aria-label="Dice showing 1"><span class="pip pip--1"></span><span class="pip pip--2"></span><span class="pip pip--3"></span><span class="pip pip--4"></span><span class="pip pip--5"></span><span class="pip pip--6"></span><span class="pip pip--7"></span><span class="pip pip--8"></span><span class="pip pip--9"></span></div><span class="dice-caption">THE ANCIENT DIE</span></div><div class="dice-copy"><span class="dice-copy-top">THE NEXT STEP</span><strong id="diceCallout">?</strong><span id="diceStatus">The path is waiting.</span></div></div>
+            <button class="primary-button" id="rollBtn" type="button" disabled><span>ROLL THE DICE</span><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="streak-row"><span><span class="small-glyph">✦</span> CORRECT ANSWERS</span><strong id="accuracyCount">0 / 0</strong></div>
+          </section>
+
+          <button class="guide-preview" id="guideBtn" type="button"><span class="guide-icon">?</span><span><strong>Unsure about the future?</strong><small>Open the WILL vs. GOING TO field guide</small></span><span class="guide-arrow">↗</span></button>
+        </aside>
+      </div>
+
+      <section class="field-notes" aria-label="Learn the future tenses"><div class="notes-header"><div><span class="section-index">THE FIELD JOURNAL</span><h2>Two ways to talk about tomorrow<span>.</span></h2></div><button class="text-link" id="examplesBtn" type="button">EXPLORE THE GRAMMAR <span>↗</span></button></div><div class="tense-cards">
+        <article class="tense-card tense-card--will"><span class="card-number">FIELD NOTE — 01</span><div class="tense-heading"><span class="tense-symbol">✦</span><h3>WILL</h3></div><p>For <strong>decisions made now</strong>, promises, offers, and predictions based on opinions.</p><div class="example">“The phone is ringing. <em>I'll answer it!</em>”</div><span class="key-idea">SPONTANEOUS · PROMISES · OPINIONS</span></article>
+        <article class="tense-card tense-card--going"><span class="card-number">FIELD NOTE — 02</span><div class="tense-heading"><span class="tense-symbol">◈</span><h3>BE GOING TO</h3></div><p>For <strong>plans made before</strong> speaking and predictions based on evidence you can see.</p><div class="example">“Look at those clouds. <em>It's going to rain.</em>”</div><span class="key-idea">PLANS · INTENTIONS · VISIBLE EVIDENCE</span></article>
+      </div></section>
+    </main>
+    <footer class="footer"><span>JUNGLE OF TENSES <span class="footer-divider">/</span> LEARN THROUGH ADVENTURE</span><span>AN ORIGINAL ENGLISH GRAMMAR BOARD GAME <span class="footer-star">✦</span></span></footer>
+  </div>
+
+  <!-- Opening screen -->
+  <div class="overlay" id="setupOverlay" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
+    <div class="modal setup-modal"><span class="modal-top-rune">✦ &nbsp; THE CALL OF THE JUNGLE &nbsp; ✦</span><div class="setup-compass" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="47" stroke="currentColor" stroke-width="1"/><circle cx="50" cy="50" r="35" stroke="currentColor" stroke-width=".75" opacity=".55"/><path d="m50 10 8 32 32 8-32 8-8 32-8-32-32-8 32-8 8-32Z" stroke="currentColor" stroke-width="1.4"/><path d="m50 18 5 27 27 5-27 5-5 27-5-27-27-5 27-5 5-27Z" fill="currentColor" opacity=".25"/><circle cx="50" cy="50" r="5" fill="currentColor"/></svg></div><span class="eyebrow setup-eyebrow">YOUR JOURNEY STARTS HERE</span><h2 id="setupTitle">The jungle <i>is calling.</i></h2><p class="modal-description">Two explorers. One mysterious path. Can you master the future tense and find the lost temple?</p>
+      <div class="setup-fields"><label class="form-field"><span>EXPLORER ONE</span><input id="name1" type="text" maxlength="18" placeholder="Explorer 1" value="Explorer 1" autocomplete="off"></label><label class="form-field"><span>EXPLORER TWO</span><input id="name2" type="text" maxlength="18" placeholder="Explorer 2" value="Explorer 2" autocomplete="off"></label></div>
+      <fieldset class="mode-picker"><legend>CHOOSE YOUR EXPEDITION</legend><label class="mode-option"><input type="radio" name="mode" value="quick" checked><span class="mode-visual"><strong>SHORT QUEST</strong><small>18 spaces · best for class</small></span><span class="mode-check">✓</span></label><label class="mode-option"><input type="radio" name="mode" value="full"><span class="mode-visual"><strong>FULL ADVENTURE</strong><small>36 spaces · the true challenge</small></span><span class="mode-check">✓</span></label></fieldset>
+      <button class="primary-button primary-button--large" id="startBtn" type="button"><span>ENTER THE JUNGLE</span><span>→</span></button><span class="modal-footer-note">NO DOWNLOADS · NO ACCOUNTS · JUST ADVENTURE</span>
+    </div>
+  </div>
+
+  <!-- Question screen -->
+  <div class="overlay overlay--hidden" id="questionOverlay" role="dialog" aria-modal="true" aria-labelledby="challengeHeading" aria-hidden="true"><div class="modal question-modal"><div class="challenge-top"><span class="section-index"><span class="red-dot"></span> THE JUNGLE HAS SPOKEN</span><span class="challenge-counter" id="challengeCounter">CHALLENGE 01</span></div><div class="challenge-rune" aria-hidden="true">✺</div><p class="challenge-kicker">A TEST OF YOUR ENGLISH</p><h2 id="challengeHeading">Choose your destiny.</h2><p class="question-hint">Which future tense completes the sentence?</p><div class="sentence-card"><span class="sentence-quote">“</span><p id="questionText">...</p><span class="sentence-quote sentence-quote--end">”</span></div><div class="choice-grid" id="choiceGrid"><button class="choice-button" type="button" data-choice="will"><span class="choice-letter">A</span><span class="choice-title">WILL</span><span class="choice-arrow">↗</span></button><button class="choice-button" type="button" data-choice="going"><span class="choice-letter">B</span><span class="choice-title">BE GOING TO</span><span class="choice-arrow">↗</span></button></div>
+    <div class="feedback" id="feedback" hidden><div class="feedback-heading"><span id="feedbackSymbol">✦</span><strong id="feedbackTitle">Well done.</strong></div><p id="feedbackExplanation"></p><div class="feedback-result" id="feedbackResult"></div><button class="primary-button" id="continueBtn" type="button"><span>CONTINUE THE EXPEDITION</span><span>→</span></button></div><p class="challenge-footnote" id="challengeFootnote">CHOOSE WISELY — THE JUNGLE REMEMBERS.</p></div></div>
+
+  <!-- Reference guide -->
+  <div class="overlay overlay--hidden" id="guideOverlay" role="dialog" aria-modal="true" aria-labelledby="guideHeading" aria-hidden="true"><div class="modal info-modal"><button type="button" class="modal-close" data-close="guideOverlay" aria-label="Close guide">×</button><span class="section-index">THE EXPLORER'S FIELD GUIDE</span><h2 id="guideHeading">The grammar of <i>tomorrow.</i></h2><p class="modal-description">Both talk about the future. The difference is <strong>why</strong> you're talking about it.</p><div class="info-split"><div class="info-item"><span class="info-tag">01 / WILL</span><h3>Decide now. Promise. Predict.</h3><div class="formula">SUBJECT + WILL + BASE VERB</div><p><strong>Spontaneous decision:</strong> “I'm thirsty. I'll get some water.”</p><p><strong>Promise or offer:</strong> “I will help you.”</p><p><strong>Opinion or belief:</strong> “I think we will win.”</p><p class="negative-tip">Negative: <strong>won't</strong> · Question: <strong>Will you come?</strong></p></div><div class="info-item info-item--going"><span class="info-tag">02 / BE GOING TO</span><h3>Plan ahead. See the signs.</h3><div class="formula">AM / IS / ARE + GOING TO + VERB</div><p><strong>Previous plan:</strong> “I'm going to study tonight.”</p><p><strong>Visible evidence:</strong> “Look at the clouds! It's going to rain.”</p><p><strong>Intention:</strong> “She's going to learn guitar.”</p><p class="negative-tip">Negative: <strong>isn't going to</strong> · Question: <strong>Are you going to go?</strong></p></div></div><p class="guide-takeaway"><span>✧</span> THE SECRET: <strong>WILL = NOW / OPINION</strong> · <strong>GOING TO = BEFORE / EVIDENCE</strong></p><button class="secondary-button" type="button" data-close="guideOverlay">BACK TO THE JUNGLE <span>→</span></button></div></div>
+
+  <!-- How to play -->
+  <div class="overlay overlay--hidden" id="rulesOverlay" role="dialog" aria-modal="true" aria-labelledby="rulesHeading" aria-hidden="true"><div class="modal info-modal rules-modal"><button type="button" class="modal-close" data-close="rulesOverlay" aria-label="Close rules">×</button><span class="section-index">THE ANCIENT RULES</span><h2 id="rulesHeading">Survive the <i>expedition.</i></h2><div class="rules-list"><div><span>01</span><section><h3>Two explorers, one path.</h3><p>Take turns. The youngest explorer begins. You can play together on the same device.</p></section></div><div><span>02</span><section><h3>Roll the ancient die.</h3><p>The die chooses how many spaces you can move (1–6).</p></section></div><div><span>03</span><section><h3>Answer the jungle's challenge.</h3><p>Choose <strong>WILL</strong> or <strong>BE GOING TO</strong>. Correct? Move forward. Wrong? Stay where you are. Every card explains why.</p></section></div><div><span>04</span><section><h3>Watch out for the wilds.</h3><p>Golden spaces move you forward. Red spaces pull you back. Reach space 18 in Short Quest, or 36 in Full Adventure, to win.</p></section></div></div><div class="rules-keyboard">TIP: Press <kbd>SPACE</kbd> to roll, <kbd>A</kbd> or <kbd>B</kbd> to answer, <kbd>ENTER</kbd> to continue.</div><button class="secondary-button" type="button" data-close="rulesOverlay">I'M READY <span>→</span></button></div></div>
+
+  <!-- Final screen -->
+  <div class="overlay overlay--hidden" id="victoryOverlay" role="dialog" aria-modal="true" aria-labelledby="victoryHeading" aria-hidden="true"><div class="modal victory-modal"><span class="victory-runes" aria-hidden="true">✦ &nbsp; ◈ &nbsp; ✦</span><div class="victory-medal" aria-hidden="true">✺</div><span class="eyebrow">THE LOST TEMPLE HAS BEEN FOUND</span><h2 id="victoryHeading">A legend <i>is born.</i></h2><p id="winnerText" class="winner-text">An explorer conquered the jungle.</p><div class="victory-stats"><div><small>CHALLENGES FACED</small><strong id="resultQuestions">00</strong></div><div><small>CORRECT ANSWERS</small><strong id="resultCorrect">00</strong></div><div><small>TEAM ACCURACY</small><strong id="resultAccuracy">00%</strong></div></div><p class="victory-quote">“The future belongs to those who dare to explore.”</p><button class="primary-button primary-button--large" id="againBtn" type="button">BEGIN A NEW EXPEDITION <span>→</span></button></div></div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
